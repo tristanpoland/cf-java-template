@@ -169,3 +169,5 @@ logs/
 # Temporary files
 temp/
 tmp/
+
+!java-test-app-1.0.0.jar
