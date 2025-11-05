@@ -170,4 +170,4 @@ logs/
 temp/
 tmp/
 
-!java-test-app-1.0.0.jar
+!target/java-test-app-1.0.0.jar
