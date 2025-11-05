@@ -28,7 +28,12 @@ class MainControllerTest {
     @Test
     void testIndexPage() throws Exception {
         Map<String, Object> mockData = new HashMap<>();
+        mockData.put("bins", 30);
+        mockData.put("labels", java.util.Arrays.asList("1", "2", "3"));
+        mockData.put("counts", java.util.Arrays.asList(10, 20, 15));
+        
         Map<String, Object> mockSystemInfo = new HashMap<>();
+        mockSystemInfo.put("Java Version", "17.0.0");
         
         when(dataService.generateHistogramData(anyInt())).thenReturn(mockData);
         when(dataService.getSystemInfo()).thenReturn(mockSystemInfo);
@@ -42,7 +47,12 @@ class MainControllerTest {
     @Test
     void testUpdateData() throws Exception {
         Map<String, Object> mockData = new HashMap<>();
+        mockData.put("bins", 25);
+        mockData.put("labels", java.util.Arrays.asList("1", "2", "3"));
+        mockData.put("counts", java.util.Arrays.asList(10, 20, 15));
+        
         Map<String, Object> mockSystemInfo = new HashMap<>();
+        mockSystemInfo.put("Java Version", "17.0.0");
         
         when(dataService.generateHistogramData(anyInt())).thenReturn(mockData);
         when(dataService.getSystemInfo()).thenReturn(mockSystemInfo);
