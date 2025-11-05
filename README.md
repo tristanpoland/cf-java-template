@@ -116,6 +116,21 @@ If you encounter issues during deployment:
    - `<app-url>/actuator/health`
    - `<app-url>/actuator/info`
 
+### Common Issues
+
+**Java Version Mismatch**
+If you see errors like `UnsupportedClassVersionError`, it means the Cloud Foundry Java buildpack is using a different Java version than what the application was compiled with. This template is configured for Java 17:
+
+- The `system.properties` file specifies `java.runtime.version=17`
+- The `manifest.yml` includes `JBP_CONFIG_OPEN_JDK_JRE: '{jre: {version: 17.+}}'`
+- The `pom.xml` is configured for Java 17
+
+If your Cloud Foundry environment doesn't support Java 17, you can:
+1. Change `<java.version>17</java.version>` to `<java.version>11</java.version>` in `pom.xml`
+2. Update `system.properties` to `java.runtime.version=11`
+3. Update the manifest.yml JRE version to `11.+`
+4. Rebuild and redeploy: `mvn clean package && cf push`
+
 ## Production Considerations
 
 This is a test application. For production use, consider adding:

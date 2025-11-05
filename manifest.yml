@@ -4,7 +4,8 @@ applications:
   memory: 1G
   instances: 1
   buildpack: java_buildpack_system
-  path: ./java-test-app-1.0.0.jar
+  path: target/java-test-app-1.0.0.jar
   timeout: 180
   env:
     JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+    JBP_CONFIG_OPEN_JDK_JRE: '{jre: {version: 17.+}}'
