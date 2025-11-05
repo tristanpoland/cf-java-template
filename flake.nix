@@ -110,6 +110,7 @@
             type = "app";
             program = "${pkgs.writeShellScript "build" ''
               export JAVA_HOME=${javaVersion}
+              export PATH=${pkgs.lib.makeBinPath buildInputs}:$PATH
               mvn clean package
             ''}";
           };
@@ -118,6 +119,7 @@
             type = "app";
             program = "${pkgs.writeShellScript "run" ''
               export JAVA_HOME=${javaVersion}
+              export PATH=${pkgs.lib.makeBinPath buildInputs}:$PATH
               mvn spring-boot:run
             ''}";
           };
@@ -126,6 +128,7 @@
             type = "app";
             program = "${pkgs.writeShellScript "test" ''
               export JAVA_HOME=${javaVersion}
+              export PATH=${pkgs.lib.makeBinPath buildInputs}:$PATH
               mvn test
             ''}";
           };
